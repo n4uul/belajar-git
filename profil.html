@@ -1,0 +1,332 @@
+w<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio - Muhammad Naufal Al-Imtiyaaz</title>
+    <!-- Google Fonts & Font Awesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0b132b 0%, #1c2541 50%, #001233 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+            color: #fff;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Ambient Glow Background Biru */
+        .ambient-glow-1 {
+            position: absolute;
+            width: 450px;
+            height: 450px;
+            background: radial-gradient(circle, rgba(0, 180, 216, 0.35) 0%, rgba(0, 119, 182, 0.15) 50%, rgba(0,0,0,0) 70%);
+            top: 20%;
+            left: 20%;
+            filter: blur(60px);
+            z-index: 0;
+        }
+
+        .ambient-glow-2 {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(114, 9, 183, 0.25) 0%, rgba(72, 202, 228, 0.2) 50%, rgba(0,0,0,0) 70%);
+            bottom: 10%;
+            right: 20%;
+            filter: blur(60px);
+            z-index: 0;
+        }
+
+        /* Main Container Card */
+        .container {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            max-width: 480px;
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 28px;
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5),
+                        inset 0 0 15px rgba(56, 189, 248, 0.05);
+            padding: 30px 24px;
+        }
+
+        /* Glass Cards Internal */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(56, 189, 248, 0.15);
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        /* Profile Section */
+        .profile-header {
+            text-align: center;
+        }
+
+        .avatar-box {
+            width: 110px;
+            height: 110px;
+            margin: 0 auto 18px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #00b4d8, #0077b6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 24px rgba(0, 180, 216, 0.35);
+        }
+
+        .avatar-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            display: block;
+        }
+
+        .profile-header h2 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+            color: #f0f9ff;
+        }
+
+        .profile-header p {
+            font-size: 0.85rem;
+            color: #93c5fd;
+        }
+
+        .badge {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 5px 14px;
+            background: rgba(0, 180, 216, 0.15);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            border-radius: 12px;
+            font-size: 0.72rem;
+            color: #38bdf8;
+            font-weight: 600;
+        }
+
+        /* Section Titles */
+        .section-title {
+            font-size: 0.82rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #38bdf8;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Grid Portfolio Items */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .portfolio-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(56, 189, 248, 0.12);
+            border-radius: 16px;
+            padding: 16px 12px;
+            text-align: center;
+            transition: all 0.25s ease;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-3px);
+            background: rgba(0, 180, 216, 0.12);
+            border-color: rgba(56, 189, 248, 0.35);
+        }
+
+        .portfolio-item i {
+            font-size: 1.6rem;
+            margin-bottom: 8px;
+            color: #38bdf8;
+        }
+
+        .portfolio-item h4 {
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+            color: #e0f2fe;
+        }
+
+        .portfolio-item p {
+            font-size: 0.7rem;
+            color: #7dd3fc;
+        }
+
+        /* Tech Stack Pills */
+        .skills-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-pill {
+            padding: 6px 12px;
+            background: rgba(0, 180, 216, 0.1);
+            border-radius: 10px;
+            font-size: 0.75rem;
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            color: #e0f2fe;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Social / Contact Links */
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .contact-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 12px;
+            border-radius: 14px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.25s ease;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            color: #e0f2fe;
+        }
+
+        .contact-btn:hover {
+            background: rgba(0, 180, 216, 0.2);
+            border-color: #38bdf8;
+            transform: translateY(-2px);
+        }
+
+        .contact-btn.instagram i { color: #e1306c; }
+        .contact-btn.github i { color: #f0f6fc; }
+        .contact-btn.whatsapp i { color: #25d366; }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 24px 18px;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-header h2 {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="ambient-glow-1"></div>
+    <div class="ambient-glow-2"></div>
+
+    <!-- Main Container -->
+    <div class="container">
+        
+        <!-- Profile Card -->
+        <div class="glass-card profile-header">
+            <div class="avatar-box">
+                <img src="profil-photo.jpg" alt="Foto Profil Muhammad Naufal Al-Imtiyaaz">
+            </div>
+            <h2>Muhammad Naufal Al-Imtiyaaz</h2>
+            <p>Broadcast & Graphic Designer</p>
+            <span class="badge"><i class="fa-solid fa-graduation-cap"></i> SMKN 1 Garut</span>
+        </div>
+
+        <!-- Portfolio Section -->
+        <div class="section-title">
+            <i class="fa-solid fa-layer-group"></i> Showcase Desain
+        </div>
+
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <i class="fa-solid fa-shield-cat"></i>
+                <h4>Mascot Maung</h4>
+                <p>Branding Broadcast</p>
+            </div>
+            <div class="portfolio-item">
+                <i class="fa-solid fa-id-card"></i>
+                <h4>Lanyard 3D</h4>
+                <p>Mockup Identity</p>
+            </div>
+            <div class="portfolio-item">
+                <i class="fa-solid fa-feather-pointed"></i>
+                <h4>Gatam Mascot</h4>
+                <p>Vector Eagle Art</p>
+            </div>
+            <div class="portfolio-item">
+                <i class="fa-solid fa-camera-retro"></i>
+                <h4>Photo Edit</h4>
+                <p>Lightroom Presets</p>
+            </div>
+        </div>
+
+        <!-- Tools & Tech Stack -->
+        <div class="section-title">
+            <i class="fa-solid fa-wand-magic-sparkles"></i> Tools & Software
+        </div>
+
+        <div class="glass-card">
+            <div class="skills-wrap">
+                <span class="skill-pill"><i class="fa-solid fa-palette"></i> Canva Pro</span>
+                <span class="skill-pill"><i class="fa-solid fa-sliders"></i> Lightroom</span>
+                <span class="skill-pill"><i class="fa-solid fa-camera"></i> Canon & Fuji</span>
+                <span class="skill-pill"><i class="fa-code"></i> HTML & Git</span>
+            </div>
+        </div>
+
+        <!-- Contact Section -->
+        <div class="section-title">
+            <i class="fa-solid fa-paper-plane"></i> Hubungi Saya
+        </div>
+
+        <div class="contact-links">
+            <a href="https://instagram.com" target="_blank" class="contact-btn instagram">
+                <i class="fa-brands fa-instagram"></i> Instagram
+            </a>
+            <a href="https://github.com/n4uul" target="_blank" class="contact-btn github">
+                <i class="fa-brands fa-github"></i> GitHub
+            </a>
+            <a href="https://wa.me" target="_blank" class="contact-btn whatsapp">
+                <i class="fa-brands fa-whatsapp"></i> WhatsApp
+            </a>
+        </div>
+
+    </div>
+
+</body>
+</html>
